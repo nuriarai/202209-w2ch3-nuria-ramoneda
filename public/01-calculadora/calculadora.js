@@ -24,22 +24,63 @@ const getNumbers = () => {
 };
 
 const getMoreNumbers = () => {
-  response = prompt("¿Quieres hacer más cálculos? Responde Sí (S) o No (N)");
+  const response = prompt(
+    "¿Quieres hacer más cálculos? Responde Sí (S) o No (N)"
+  );
   if (response === "S" || response === "N") {
     switch (response) {
       case "S":
-        console.log("\nNuevo cálculo: " + "\n");
+        console.log("\nNuevo cálculo: \n");
         console.log(calculate(getNumbers()));
         break;
       case "N":
         console.log("Gracias por participar. Adiós!");
         break;
+      default:
     }
   } else {
     console.log("Hay que poner una S o una N para Sí o NO.");
-    //TODO: bucle para volver al primer prompt si se equivocan.
-    //response = prompt("¿Quieres volver a intentarlo? Responde Sí (S) o No (N)");
+    // TODO: bucle para volver al primer prompt si se equivocan.
+    // response = prompt("¿Quieres volver a intentarlo? Responde Sí (S) o No (N)");
   }
+};
+
+const square = (num) => {
+  results.push(`El cuadrado de ${num} es: ${num * num} `);
+};
+
+const sum = (args) => {
+  let result = 0;
+
+  for (const num in args) {
+    result += args[num];
+  }
+
+  return result;
+};
+
+const substract = (args) => {
+  let result = args[0];
+  for (let num = 1; num < args.length; num += 1) {
+    result -= args[num];
+  }
+  return result;
+};
+
+const multip = (args) => {
+  let result = 1;
+  for (num in args) {
+    result *= args[num];
+  }
+  return result;
+};
+
+const division = (args) => {
+  let result = args[0];
+  for (let num = 1; num < args.length; num += 1) {
+    result /= args[num];
+  }
+  return result;
 };
 
 const calculate = (userNumbers) => {
@@ -81,44 +122,6 @@ const calculate = (userNumbers) => {
   }
   console.log(results.join("\n"));
   getMoreNumbers();
-  return;
-};
-
-const square = (num) => {
-  results.push(`El cuadrado de ${num} es: ${num * num} `);
-  return;
-};
-
-const sum = (args) => {
-  let result = 0;
-  for (num in args) {
-    result += args[num];
-  }
-  return result;
-};
-
-const substract = (args) => {
-  let result = args[0];
-  for (let num = 1; num < args.length; num++) {
-    result -= args[num];
-  }
-  return result;
-};
-
-const multip = (args) => {
-  let result = 1;
-  for (num in args) {
-    result *= args[num];
-  }
-  return result;
-};
-
-const division = (args) => {
-  let result = args[0];
-  for (let num = 1; num < args.length; num++) {
-    result /= args[num];
-  }
-  return result;
 };
 
 console.log(calculate(getNumbers()));
