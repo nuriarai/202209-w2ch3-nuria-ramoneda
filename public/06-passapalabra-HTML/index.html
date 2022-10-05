@@ -1,201 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Pasapalabra HTML</title>
-        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-        <link rel="icon" href="favicon.ico" type="image/x-icon" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;800&display=swap"
-            rel="stylesheet"
-        />
-        <link rel="stylesheet" type="text/css" href="assets/css/main.css" />
-    </head>
-    <body>
-        <header>
-            <h1>El isdi-roscow de <span>pasapalabra</span></h1>
-        </header>
-        <main>
-            <div class="roscow-wrapper">
-                <ul class="roscow">
-                    <li class="letter letter-a">
-                        <span class="inner-letter">A</span>
-                    </li>
-                    <li class="letter letter-b">
-                        <span class="inner-letter">B</span>
-                    </li>
-                    <li class="letter letter-c">
-                        <span class="inner-letter">C</span>
-                    </li>
-                    <li class="letter letter-d">
-                        <span class="inner-letter">D</span>
-                    </li>
-                    <li class="letter letter-e">
-                        <span class="inner-letter">E</span>
-                    </li>
-                    <li class="letter letter-f">
-                        <span class="inner-letter">F</span>
-                    </li>
-                    <li class="letter letter-g">
-                        <span class="inner-letter">G</span>
-                    </li>
-                    <li class="letter letter-h">
-                        <span class="inner-letter">H</span>
-                    </li>
-                    <li class="letter letter-i">
-                        <span class="inner-letter">I</span>
-                    </li>
-                    <li class="letter letter-j">
-                        <span class="inner-letter">J</span>
-                    </li>
-                    <li class="letter letter-l">
-                        <span class="inner-letter">L</span>
-                    </li>
-                    <li class="letter letter-m">
-                        <span class="inner-letter">M</span>
-                    </li>
-                    <li class="letter letter-n">
-                        <span class="inner-letter">N</span>
-                    </li>
-                    <li class="letter letter-ñ">
-                        <span class="inner-letter">Ñ</span>
-                    </li>
-                    <li class="letter letter-o">
-                        <span class="inner-letter">O</span>
-                    </li>
-                    <li class="letter letter-p">
-                        <span class="inner-letter">P</span>
-                    </li>
-                    <li class="letter letter-q">
-                        <span class="inner-letter">Q</span>
-                    </li>
-                    <li class="letter letter-r">
-                        <span class="inner-letter">R</span>
-                    </li>
-                    <li class="letter letter-s">
-                        <span class="inner-letter">S</span>
-                    </li>
-                    <li class="letter letter-t">
-                        <span class="inner-letter">T</span>
-                    </li>
-                    <li class="letter letter-u">
-                        <span class="inner-letter">U</span>
-                    </li>
-                    <li class="letter letter-v">
-                        <span class="inner-letter">V</span>
-                    </li>
-                    <li class="letter letter-x">
-                        <span class="inner-letter">X</span>
-                    </li>
-                    <li class="letter letter-y">
-                        <span class="inner-letter">Y</span>
-                    </li>
-                    <li class="letter letter-z">
-                        <span class="inner-letter">Z</span>
-                    </li>
-                </ul>
-                <div class="timer-success">
-                    <span class="counter-timer">130</span>
-                    <span class="counter-success succeeded">0</span>
-                </div>
-                <div class="panel">
-                    <div class="inner-panel inner-panel-begin animated">
-                        <p>Vas a jugar al<br />Isdi-Roscow</p>
-                        <p class="smaller">
-                            Recuerda escribir sin tildes.<br />Puedes usar la
-                            tecla Enter para enviar respuesta y el Tabulador
-                            para pasar palabra.
-                        </p>
-                        <button class="begin btn-dark">Empezar</button>
-                    </div>
-                    <div
-                        class="inner-panel inner-panel-game hidden-panel animated"
-                    >
-                        <div class="wrapper-question">
-                            <p class="begin-with btn-light">
-                                Empieza por <span></span>
-                            </p>
-                            <p class="question">Primera pregunta</p>
-                        </div>
-                        <div class="wrapper-response">
-                            <input
-                                type="text"
-                                placeholder="Escribe tu respuesta"
-                                class="input-answer"
-                            />
-                            <button class="response-question btn-dark">
-                                &#10003;
-                            </button>
-                            <button class="pass-question">PASAPALABRA</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="counters">
-                    <span class="label-counter-fails">Palabras falladas</span>
-                    <span class="counter-fails failed">0</span>
-                    <span class="label-counter-remaining"
-                        >Palabras restantes</span
-                    >
-                    <span class="counter-remaining">25</span>
-                </div>
-            </div>
-            <div class="modal modal-timer">
-                <div class="inner-panel inner-panel-final">
-                    <p>¡Vaya, lo sentimos!<br />el tiempo se ha acabado.</p>
-                    <p class="">
-                        Nos has podido terminar, pero estos son los resultados
-                        que has obtenido:
-                    </p>
-                    <table class="results">
-                        <thead>
-                            <tr>
-                                <th>Aciertos</th>
-                                <th>Fallos</th>
-                                <th>Pendientes</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="counter-success">10</td>
-                                <td class="counter-fails">5</td>
-                                <td class="counter-remaining">10</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <!--  <span class="counter-success succeeded">0</span>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pasapalabra HTML</title>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="06-passapalabra-HTML/assets/css/main.css" />
+</head>
+
+<body>
+  <header>
+    <h1>El isdi-roscow de <span>pasapalabra</span></h1>
+  </header>
+  <main>
+    <div class="roscow-wrapper">
+      <ul class="roscow">
+        <li class="letter letter-a">
+          <span class="inner-letter">A</span>
+        </li>
+        <li class="letter letter-b">
+          <span class="inner-letter">B</span>
+        </li>
+        <li class="letter letter-c">
+          <span class="inner-letter">C</span>
+        </li>
+        <li class="letter letter-d">
+          <span class="inner-letter">D</span>
+        </li>
+        <li class="letter letter-e">
+          <span class="inner-letter">E</span>
+        </li>
+        <li class="letter letter-f">
+          <span class="inner-letter">F</span>
+        </li>
+        <li class="letter letter-g">
+          <span class="inner-letter">G</span>
+        </li>
+        <li class="letter letter-h">
+          <span class="inner-letter">H</span>
+        </li>
+        <li class="letter letter-i">
+          <span class="inner-letter">I</span>
+        </li>
+        <li class="letter letter-j">
+          <span class="inner-letter">J</span>
+        </li>
+        <li class="letter letter-l">
+          <span class="inner-letter">L</span>
+        </li>
+        <li class="letter letter-m">
+          <span class="inner-letter">M</span>
+        </li>
+        <li class="letter letter-n">
+          <span class="inner-letter">N</span>
+        </li>
+        <li class="letter letter-ñ">
+          <span class="inner-letter">Ñ</span>
+        </li>
+        <li class="letter letter-o">
+          <span class="inner-letter">O</span>
+        </li>
+        <li class="letter letter-p">
+          <span class="inner-letter">P</span>
+        </li>
+        <li class="letter letter-q">
+          <span class="inner-letter">Q</span>
+        </li>
+        <li class="letter letter-r">
+          <span class="inner-letter">R</span>
+        </li>
+        <li class="letter letter-s">
+          <span class="inner-letter">S</span>
+        </li>
+        <li class="letter letter-t">
+          <span class="inner-letter">T</span>
+        </li>
+        <li class="letter letter-u">
+          <span class="inner-letter">U</span>
+        </li>
+        <li class="letter letter-v">
+          <span class="inner-letter">V</span>
+        </li>
+        <li class="letter letter-x">
+          <span class="inner-letter">X</span>
+        </li>
+        <li class="letter letter-y">
+          <span class="inner-letter">Y</span>
+        </li>
+        <li class="letter letter-z">
+          <span class="inner-letter">Z</span>
+        </li>
+      </ul>
+      <div class="timer-success">
+        <span class="counter-timer">130</span>
+        <span class="counter-success succeeded">0</span>
+      </div>
+      <div class="panel">
+        <div class="inner-panel inner-panel-begin animated">
+          <p>Vas a jugar al<br />Isdi-Roscow</p>
+          <p class="smaller">
+            Recuerda escribir sin tildes.<br />Puedes usar la
+            tecla Enter para enviar respuesta y el Tabulador
+            para pasar palabra.
+          </p>
+          <button class="begin btn-dark">Empezar</button>
+        </div>
+        <div class="inner-panel inner-panel-game hidden-panel animated">
+          <div class="wrapper-question">
+            <p class="begin-with btn-light">
+              Empieza por <span></span>
+            </p>
+            <p class="question">Primera pregunta</p>
+          </div>
+          <div class="wrapper-response">
+            <input type="text" placeholder="Escribe tu respuesta" class="input-answer" />
+            <button class="response-question btn-dark">
+              &#10003;
+            </button>
+            <button class="pass-question">PASAPALABRA</button>
+          </div>
+        </div>
+      </div>
+      <div class="counters">
+        <span class="label-counter-fails">Palabras falladas</span>
+        <span class="counter-fails failed">0</span>
+        <span class="label-counter-remaining">Palabras restantes</span>
+        <span class="counter-remaining">25</span>
+      </div>
+    </div>
+    <div class="modal modal-timer">
+      <div class="inner-panel inner-panel-final">
+        <p>¡Vaya, lo sentimos!<br />el tiempo se ha acabado.</p>
+        <p class="">
+          Nos has podido terminar, pero estos son los resultados
+          que has obtenido:
+        </p>
+        <table class="results">
+          <thead>
+            <tr>
+              <th>Aciertos</th>
+              <th>Fallos</th>
+              <th>Pendientes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="counter-success">10</td>
+              <td class="counter-fails">5</td>
+              <td class="counter-remaining">10</td>
+            </tr>
+          </tbody>
+        </table>
+        <!--  <span class="counter-success succeeded">0</span>
                     <span class="counter-fails failed">0</span>
                     <span class="counter-remaining">0</span> -->
-                    <button class="rebegin btn-dark">Volver a jugar</button>
-                </div>
-            </div>
-            <div class="modal modal-ended">
-                <div class="inner-panel inner-panel-final">
-                    <p>¡Enhorabuena!<br />Has completado el isdi-roscow.</p>
-                    <p>Estos son tu tiempo y resultados:</p>
-                    <table class="results">
-                        <thead>
-                            <tr>
-                                <th>Tiempo</th>
-                                <th>Aciertos</th>
-                                <th>Fallos</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="counter-final-time">0</td>
-                                <td class="counter-success">0</td>
-                                <td class="counter-fails">0</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <button class="btnRebegin btn-dark">Volver a jugar</button>
-                </div>
-            </div>
-        </main>
-        <script type="text/javascript" src="assets/js/master.js"></script>
-    </body>
+        <button class="rebegin btn-dark">Volver a jugar</button>
+      </div>
+    </div>
+    <div class="modal modal-ended">
+      <div class="inner-panel inner-panel-final">
+        <p>¡Enhorabuena!<br />Has completado el isdi-roscow.</p>
+        <p>Estos son tu tiempo y resultados:</p>
+        <table class="results">
+          <thead>
+            <tr>
+              <th>Tiempo</th>
+              <th>Aciertos</th>
+              <th>Fallos</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="counter-final-time">0</td>
+              <td class="counter-success">0</td>
+              <td class="counter-fails">0</td>
+            </tr>
+          </tbody>
+        </table>
+        <button class="btnRebegin btn-dark">Volver a jugar</button>
+      </div>
+    </div>
+  </main>
+  <script type="text/javascript" src="06-passapalabra-HTML/assets/js/master.js"></script>
+</body>
+
 </html>
