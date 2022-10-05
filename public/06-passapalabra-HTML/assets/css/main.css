@@ -1,0 +1,520 @@
+/***
+    The new CSS reset - version 1.7.3 (last updated 7.8.2022)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+  all: unset;
+  display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a,
+button {
+  cursor: pointer;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol,
+ul,
+menu {
+  list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+  max-width: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+  border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input,
+textarea {
+  -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+  white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+  -webkit-appearance: revert;
+  -moz-appearance: revert;
+       appearance: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::-moz-placeholder {
+  color: unset;
+}
+:-ms-input-placeholder {
+  color: unset;
+}
+::placeholder {
+  color: unset;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+  display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable=false])) {
+  -moz-user-modify: read-write;
+  -webkit-user-modify: read-write;
+  overflow-wrap: break-word;
+  -webkit-line-break: after-white-space;
+  -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable=true]) {
+  -webkit-user-drag: element;
+}
+
+/* == breakpoints == */ /* colors */
+:root {
+  --main-color: #0455b3;
+  --letter-color: #6fb1f6;
+  --blue-soft: #2b91fd;
+  --fail-color: #cf521b;
+  --success-color: #99b30c;
+  --light-color: white;
+  --body-color: #1f87ff;
+  --roscow-size: 600;
+}
+
+body {
+  font-family: "Nunito", sans-serif;
+  font-weight: 800;
+  background-color: #0088ff;
+  color: var(--light-color);
+  padding: 20px;
+}
+
+header {
+  margin-bottom: 20px;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 30px;
+}
+
+footer p,
+footer address {
+  margin: 5px 0;
+  font-size: 0.8rem;
+  font-style: normal;
+  font-weight: 600;
+}
+
+address a {
+  color: var(--light-color);
+}
+
+h1 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 10px;
+  line-height: 1.2;
+}
+h1 span {
+  display: block;
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+.btn-dark,
+.btn-light {
+  padding: 5px 15px;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+}
+
+.btn-dark {
+  background-color: var(--main-color);
+  color: var(--light-color);
+  border: 1px solid var(--main-color);
+}
+.btn-dark:hover, .btn-dark:focus {
+  background-color: var(--light-color);
+  color: var(--main-color);
+}
+
+.btn-light {
+  background-color: var(--light-color);
+  color: var(--main-color);
+}
+
+.roscow-wrapper {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 1000px) {
+  .roscow-wrapper {
+    width: 1000px;
+  }
+}
+.roscow {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  margin: 30px auto;
+  padding: 0;
+  list-style-type: none;
+  /* transform: translate(calc(50% - 300px)); */
+  /* la meitat del width del pare menys el width de l'element */
+  transform: translate(200px);
+}
+
+.letter {
+  list-style-type: none;
+  border: 1px solid var(--light-color);
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  /* la meitat del width del pare menys el width de l'element */
+  transform-origin: -242px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  color: var(--light-color);
+  background: var(--letter-color);
+  -webkit-animation: none;
+          animation: none;
+}
+
+.succeeded {
+  background-color: var(--success-color);
+}
+
+.failed {
+  background-color: var(--fail-color);
+}
+
+.current-letter:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: var(--main-color);
+  -webkit-animation: pulseLetter 1s infinite;
+          animation: pulseLetter 1s infinite;
+}
+
+.inner-letter {
+  text-shadow: 4px 4px 2px rgba(16, 72, 186, 0.98);
+}
+
+@-webkit-keyframes pulseLetter {
+  0% {
+    box-shadow: 0 0 0 0 rgba(42, 64, 230, 0.495);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(42, 64, 230, 0.4);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(42, 64, 230, 0.4);
+  }
+}
+
+@keyframes pulseLetter {
+  0% {
+    box-shadow: 0 0 0 0 rgba(42, 64, 230, 0.495);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(42, 64, 230, 0.4);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(42, 64, 230, 0.4);
+  }
+}
+.timer-success,
+.counters {
+  width: 20%;
+  height: 130px;
+  align-self: flex-end;
+  display: grid;
+  grid-template-columns: 1fr 60px;
+  grid-template-rows: 1fr 60px;
+  gap: 10px 10px;
+  justify-items: end;
+  align-items: center;
+}
+
+[class^=counter-] {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.875rem;
+  text-shadow: 4px 4px 2px rgb(4, 85, 199);
+  border-radius: 50%;
+  border: 3px solid var(--light-color);
+}
+
+[class^=label-] {
+  font-size: 1rem;
+  text-transform: uppercase;
+  text-align: right;
+  padding-right: 10px;
+}
+
+.counter-timer {
+  width: 130px;
+  height: 130px;
+  font-size: 2.6rem;
+}
+
+.counter-success {
+  width: 80px;
+  height: 80px;
+  align-self: center;
+  margin-left: -10px;
+  z-index: -1;
+}
+
+.counter-fails,
+.counter-remaining {
+  width: 60px;
+  height: 60px;
+}
+
+.counter-timer,
+.counter-remaining {
+  background-color: var(--main-color);
+  text-shadow: 3px 3px 2px rgb(106, 157, 215);
+}
+
+table .counter-success,
+table .counter-fails,
+table .counter-remaining {
+  width: 33%;
+  height: auto;
+}
+
+.panel {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /*  top: calc(50% - 150px);
+  left: calc(50% - 150px); */
+  width: 400px;
+  height: 400px;
+  border: 3px dotted var(--light-color);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inner-panel {
+  border-radius: 50%;
+}
+
+.inner-panel-begin,
+.inner-panel-game,
+.inner-panel-final {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 60px 40px;
+  margin: 5px;
+  background-color: var(--light-color);
+  text-align: center;
+  opacity: 1;
+}
+.inner-panel-begin .begin,
+.inner-panel-begin .begin-with,
+.inner-panel-game .begin,
+.inner-panel-game .begin-with,
+.inner-panel-final .begin,
+.inner-panel-final .begin-with {
+  display: inline-block;
+  margin-top: 20px;
+}
+.inner-panel-begin p,
+.inner-panel-game p,
+.inner-panel-final p {
+  color: var(--main-color);
+}
+
+.inner-panel-begin {
+  width: 300px;
+  height: 300px;
+  padding: 45px 40px;
+  background-color: var(--light-color);
+  z-index: 1;
+}
+.inner-panel-begin p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+.inner-panel-begin p.smaller {
+  font-size: 0.8rem;
+  margin-bottom: 5px;
+}
+
+.inner-panel-game {
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 30px;
+}
+.inner-panel-game p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  color: var(--light-color);
+}
+.inner-panel-game .begin-with {
+  color: var(--main-color);
+}
+.inner-panel-game .input-answer {
+  border-bottom: 1px solid var(--light-color);
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+  font-size: 1.4rem;
+  width: 70%;
+  color: #bbd6f3;
+}
+.inner-panel-game .response-question {
+  display: block;
+  margin: 0 auto;
+  min-width: 80px;
+}
+.inner-panel-game .pass-question {
+  display: block;
+  padding: 2px 0;
+  margin: 15px auto;
+  color: var(--main-color);
+  border-top: 1px solid var(--main-color);
+  border-bottom: 1px solid var(--main-color);
+}
+.inner-panel-game .pass-question:hover, .inner-panel-game .pass-question:focus {
+  color: var(--light-color);
+  border-top: 1px solid var(--light-color);
+  border-bottom: 1px solid var(--light-color);
+}
+
+.inner-panel-final {
+  width: 400px;
+  height: 400px;
+  border: 1px solid var(--main-color);
+}
+.inner-panel-final p:first-of-type {
+  font-size: 1.4rem;
+}
+
+.hidden-panel {
+  display: none;
+}
+
+.transition-panel.hidden-panel {
+  display: block;
+  opacity: 0;
+  z-index: 0;
+}
+
+.transition-panel {
+  transition: opacity 1s ease;
+}
+
+::-moz-placeholder {
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 600;
+}
+
+:-ms-input-placeholder {
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 600;
+}
+
+::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 600;
+}
+
+.animated {
+  transition: all 0.5s ease 0s;
+}
+
+.modal {
+  position: fixed;
+  z-index: 2;
+  transition: all 0.3s ease;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0;
+  visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #c0dbf4;
+}
+.modal.open {
+  visibility: visible;
+  opacity: 1;
+  transition-delay: 0s;
+}
+.modal p {
+  margin-bottom: 20px;
+}
+
+.results {
+  display: table;
+  margin: 20px auto;
+  color: var(--main-color);
+  border-collapse: separate;
+  border-spacing: 5px;
+}
+.results th {
+  border-bottom: 1px solid var(--blue-soft);
+  font-weight: 800;
+  width: 33.3%;
+}
+.results td[class^=counter-] {
+  text-shadow: none;
+  background: none;
+  border: none;
+  display: revert;
+}
