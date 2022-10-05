@@ -1,0 +1,66 @@
+.timer-success,
+.counters {
+    width: 20%;
+    height: 130px;
+    align-self: flex-end;
+    display: grid;
+    grid-template-columns: 1fr 60px;
+    grid-template-rows: 1fr 60px;
+    gap: 10px 10px;
+    justify-items: end;
+    align-items: center;
+}
+
+[class^="counter-"] {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.875rem;
+    text-shadow: 4px 4px 2px rgba(4, 85, 179 / 0.9); // rgba(16 72 186 / 98%);
+    border-radius: 50%;
+    border: 3px solid var(--light-color);
+}
+
+[class^="label-"] {
+    font-size: 1rem;
+    text-transform: uppercase;
+    text-align: right;
+    padding-right: 10px;
+}
+
+.counter-timer {
+    width: 130px;
+    height: 130px;
+    font-size: 2.6rem;
+}
+
+.counter-success {
+    width: 80px;
+    height: 80px;
+    align-self: center;
+    margin-left: -10px;
+    z-index: -1;
+}
+
+.counter-fails,
+.counter-remaining {
+    width: 60px;
+    height: 60px;
+}
+
+.counter-timer,
+.counter-remaining {
+    background-color: var(--main-color);
+    text-shadow: 3px 3px 2px rgb(106 157 215 / 90); // rgba(16 72 186 / 98%);
+}
+
+table .counter-success,
+table .counter-fails,
+table .counter-remaining {
+    width: 33%;
+    height: auto;
+}
+
+.label-counter-remaining,
+.label-counter-fails {
+}

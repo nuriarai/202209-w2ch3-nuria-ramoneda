@@ -1,0 +1,68 @@
+/* == breakpoints == */
+
+@mixin bkp($class) {
+  @if $class==xxs {
+    @media (max-width: 441px) {
+      @content;
+    }
+  } @else if $class==smmax {
+    @media (max-width: 600px) {
+      @content;
+    }
+  } @else if $class==mdmax {
+    @media (max-width: 767px) {
+      @content;
+    }
+  } @else if $class==lgmax {
+    @media (max-width: 992px) {
+      @content;
+    }
+  } @else if $class==xlmax {
+    @media (max-width: 1200px) {
+      @content;
+    }
+  } @else if $class==xlgmax {
+    @media (max-width: 1200px) {
+      @content;
+    }
+  } @else if $class==sm {
+    @media (min-width: 600px) {
+      @content;
+    }
+  } @else if $class==md {
+    @media (min-width: 768px) {
+      @content;
+    }
+  } @else if $class==lg {
+    @media (min-width: 992px) {
+      @content;
+    }
+  } @else if $class==xl {
+    @media (min-width: 1200px) {
+      @content;
+    }
+  } @else if $class==xlm {
+    @media (min-width: 1400px) {
+      @content;
+    }
+  } @else if $class==xlg {
+    @media (min-width: 1600px) {
+      @content;
+    }
+  } @else {
+    @warn "Breakpoint mixin supports: xs, sm, md, lg";
+  }
+}
+
+//px input (only the number)
+$baseFontSize: 16;
+@mixin remFS($sizeValue) {
+  font-size: ($sizeValue) * 1px;
+  font-size: calc($sizeValue / $baseFontSize) * 1rem;
+}
+
+// Rem output with px fallback
+@mixin font-size($sizeValue: 1) {
+  font-size: ($sizeValue * 16) * 1px;
+  font-size: $sizeValue * 1rem;
+}
